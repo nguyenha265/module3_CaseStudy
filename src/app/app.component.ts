@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {UserService} from './user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CaseStudy';
+
+  constructor(private userService: UserService) {
+  }
+
+  logout() {
+    this.userService.checkLogin = 'true';
+    this.userService.CheckUsre(this.userService.userOnline.email).status = false;
+  }
 }
